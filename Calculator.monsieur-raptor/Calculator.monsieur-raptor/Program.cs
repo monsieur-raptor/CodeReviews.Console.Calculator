@@ -10,6 +10,7 @@ namespace CalculatorProgram
         static void Main(string[] args)
         {
             bool endApp = false;
+            int operationCounter = 0;
             // Display title as the C# console calculator app.
             Console.WriteLine("Console Calculator in C#\r");
             Console.WriteLine("------------------------\n");
@@ -69,7 +70,11 @@ namespace CalculatorProgram
                         {
                             Console.WriteLine("This operation will result in a mathematical error.\n");
                         }
-                        else Console.WriteLine("Your result: {0:0.##}\n", result);
+                        else
+                        {
+                            operationCounter++; // Count the number of times the calculator was used
+                            Console.WriteLine("Your result: {0:0.##}\n", result);
+                        }
                     }
                     catch (Exception e)
                     {
@@ -84,7 +89,7 @@ namespace CalculatorProgram
 
                 Console.WriteLine("\n"); // Friendly linespacing.
             }
-            calculator.Finish();
+            calculator.Finish(operationCounter);
             return;
         }
     }

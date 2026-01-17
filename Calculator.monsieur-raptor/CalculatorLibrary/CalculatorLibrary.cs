@@ -62,9 +62,11 @@ namespace CalculatorLibrary
             return result;
         }
 
-        public void Finish()
+        public void Finish(int total)
         {
             writer.WriteEndArray();
+            writer.WritePropertyName("OperationCount");
+            writer.WriteValue(total);
             writer.WriteEndObject();
             writer.Close();
         }
